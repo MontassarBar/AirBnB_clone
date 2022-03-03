@@ -19,7 +19,7 @@ class BaseModel:
         self.updated_at = datetime.today()
 
     def to_dict(self):
-        dictionary =  self.__dict__.copy()
+        dictionary =  self.__dict__
         dictionary['__class__'] = self.__class__.__name__
         dictionary['created_at'] = datetime.now().isoformat(sep='T')
         dictionary['updated_at'] = datetime.now().isoformat(sep='T')
