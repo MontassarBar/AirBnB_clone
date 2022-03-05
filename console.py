@@ -11,6 +11,7 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def do_quit(self, line):
+        '''Exit'''
         return True
 
 
