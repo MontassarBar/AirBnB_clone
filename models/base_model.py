@@ -1,6 +1,19 @@
+#!/usr/bin/python3
+'''BaseModel class'''
 import uuid
 from datetime import datetime
+
+
 class BaseModel:
+    '''
+    Public instance attributes:
+        -id: string - assign with an uuid when an instance is created.
+        -created_at: datetime - assign with the current datetime when
+        an instance is created.
+        -updated_at: datetime - assign with the current datetime when
+        an instance is created and it will be updated every time you
+        change your object.
+    '''
     def __init__(self, *args, **kwargs):
         if len(kwargs) != 0:
             for key, value in kwargs.items():
@@ -13,13 +26,22 @@ class BaseModel:
             self.created_at = datetime.today()
 
     def __str__(self):
-        return "[{}] (<{}>) <{}>".format(self.__class__.__name__, self.id, self.__dict__)
+        '''prints [<class name>] (<self.id>) <self.__dict__>'''
+        return "[{}] (<{}>) <{}>".format(
+            self.__class__.__name__, self.id, self.__dict__)
 
     def save(self):
+        '''
+        updates the public instance attribute updated_at with the current
+        datetime
+        '''
         self.updated_at = datetime.today()
 
     def to_dict(self):
-        dictionary =  self.__dict__
+        '''
+        returns a dictionary containing all keys/values of __dict__ of
+        the instance'''
+        dictionary = self.__dict__
         dictionary['__class__'] = self.__class__.__name__
         dictionary['created_at'] = datetime.now().isoformat(sep='T')
         dictionary['updated_at'] = datetime.now().isoformat(sep='T')
