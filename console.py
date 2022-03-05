@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 '''HBNBCommand class'''
 import cmd
-import sys
 
 
 class HBNBCommand(cmd.Cmd):
@@ -11,9 +10,8 @@ class HBNBCommand(cmd.Cmd):
         '''Exit'''
         return True
 
-    def do_quit(self, arg):
-        '''Exit'''
-        sys.exit(1)
+    def do_quit(self, line):
+        return True
 
 
 if __name__ == '__main__':
