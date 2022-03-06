@@ -2,6 +2,7 @@
 '''HBNBCommand class'''
 import cmd
 from models.base_model import BaseModel
+from models.user import User
 import models
 
 
@@ -21,20 +22,26 @@ class HBNBCommand(cmd.Cmd):
         pass
 
     def do_create(self, line):
+        line_args = line.split()
         if len(line) == 0:
             print("** class name missing **")
-        elif line != "BaseModel":
+        elif line_args[0] not in ("BaseModel", "User"):
             print("** class doesn't exist **")
         else:
-            instance = BaseModel()
-            instance.save()
-            print(instance.id)
+            if line_args[0] == "BaseModel":
+                instance = BaseModel()
+                instance.save()
+                print(instance.id)
+            elif line_args[0] == "User":
+                instan = User()
+                instan.save()
+                print(instan.id)
 
     def do_show(self, line):
         line_args = line.split()
         if len(line) == 0:
             print("** class name missing **")
-        elif line_args[0] != "BaseModel":
+        elif line_args[0] not in  ("BaseModel", "User"):
             print("** class doesn't exist **")
         elif len(line_args) == 1:
             print("** instance id missing **")
@@ -49,7 +56,7 @@ class HBNBCommand(cmd.Cmd):
         line_args = line.split()
         if len(line) == 0:
             print("** class name missing **")
-        elif line_args[0] != "BaseModel":
+        elif line_args[0] not in ("BaseModel", "User"):
             print("** class doesn't exist **")
         elif len(line_args) == 1:
             print("** instance id missing **")
@@ -60,11 +67,6 @@ class HBNBCommand(cmd.Cmd):
             else:
                 del(id[line_args[0] + '.' + line_args[1]])
                 models.storage.save()
-
-    def do_all(self, line):
-        line_arg = line.split()
-        if line_arg[1] != "BaseModel":
-            print("** class doesn't exist **")
 
 
 if __name__ == '__main__':
