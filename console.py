@@ -3,6 +3,11 @@
 import cmd
 from models.base_model import BaseModel
 from models.user import User
+from models.state import State
+from models.review import Review
+from models.place import Place
+from models.city import City
+from models.amenity import Amenity
 import models
 
 
@@ -25,7 +30,8 @@ class HBNBCommand(cmd.Cmd):
         line_args = line.split()
         if len(line) == 0:
             print("** class name missing **")
-        elif line_args[0] not in ("BaseModel", "User"):
+        elif line_args[0] not in (
+                "BaseModel", "User", "State", "Review", "Place", "City", "Amenity"):
             print("** class doesn't exist **")
         else:
             if line_args[0] == "BaseModel":
@@ -33,15 +39,35 @@ class HBNBCommand(cmd.Cmd):
                 instance.save()
                 print(instance.id)
             elif line_args[0] == "User":
-                instan = User()
-                instan.save()
-                print(instan.id)
+                instance = User()
+                instance.save()
+                print(instance.id)
+            elif line_args[0] == "State":
+                instance = State()
+                instance.save()
+                print(instance.id)
+            elif line_args[0] == "Review":
+                instance = Review()
+                instance.save()
+                print(instance.id)
+            elif line_args[0] == "Place":
+                instance = Place()
+                instance.save()
+                print(instance.id)
+            elif line_args[0] == "City":
+                instance = City()
+                instance.save()
+                print(instance.id)
+            elif line_args[0] == "Amenity":
+                instance = Amenity()
+                instance.save()
+                print(instance.id)
 
     def do_show(self, line):
         line_args = line.split()
         if len(line) == 0:
             print("** class name missing **")
-        elif line_args[0] not in ("BaseModel", "User"):
+        elif line_args[0] not in ("BaseModel", "User", "State", "Review", "Place", "City", "Amenity"):
             print("** class doesn't exist **")
         elif len(line_args) == 1:
             print("** instance id missing **")
@@ -56,7 +82,7 @@ class HBNBCommand(cmd.Cmd):
         line_args = line.split()
         if len(line) == 0:
             print("** class name missing **")
-        elif line_args[0] not in ("BaseModel", "User"):
+        elif line_args[0] not in ("BaseModel", "User", "State", "Review", "Place", "City", "Amenity"):
             print("** class doesn't exist **")
         elif len(line_args) == 1:
             print("** instance id missing **")
