@@ -3,7 +3,7 @@
 from models.base_model import BaseModel
 
 
-class Amenity:
+class Amenity(BaseModel):
     '''
     Public class attributes:
         name: string - empty string
