@@ -41,7 +41,7 @@ class HBNBCommand(cmd.Cmd):
         line_args = line.split()
         if len(line) == 0:
             print("** class name missing **")
-        elif line_args[0] not in  ("BaseModel", "User"):
+        elif line_args[0] not in ("BaseModel", "User"):
             print("** class doesn't exist **")
         elif len(line_args) == 1:
             print("** instance id missing **")
