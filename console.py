@@ -58,7 +58,7 @@ class HBNBCommand(cmd.Cmd):
             if (line_args[0] + '.' + line_args[1]) not in id.keys():
                 print("** no instance found **")
             else:
-                del(line_args[0] + '.' + line_args[1])
+                del(id[line_args[0] + '.' + line_args[1]])
                 models.storage.save()
 
 if __name__ == '__main__':
