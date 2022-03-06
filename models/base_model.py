@@ -47,6 +47,6 @@ class BaseModel:
         the instance'''
         dictionary = self.__dict__.copy()
         dictionary['__class__'] = self.__class__.__name__
-        dictionary['created_at'] = datetime.now().isoformat()
-        dictionary['updated_at'] = datetime.now().isoformat()
+        dictionary['created_at'] = datetime.now().isoformat("T")
+        dictionary['updated_at'] = datetime.now().isoformat("T")
         return dictionary
