@@ -45,7 +45,7 @@ class BaseModel:
         '''
         returns a dictionary containing all keys/values of __dict__ of
         the instance'''
-        dictionary = self.__dict__
+        dictionary = self.__dict__.copy()
         dictionary['__class__'] = self.__class__.__name__
         dictionary['created_at'] = datetime.now().isoformat(sep='T')
         dictionary['updated_at'] = datetime.now().isoformat(sep='T')
