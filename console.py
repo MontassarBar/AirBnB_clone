@@ -61,5 +61,11 @@ class HBNBCommand(cmd.Cmd):
                 del(id[line_args[0] + '.' + line_args[1]])
                 models.storage.save()
 
+    def do_all(self, line):
+        line_arg = line.split()
+        if line_arg[1] != "BaseModel":
+            print("** class doesn't exist **")
+
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
