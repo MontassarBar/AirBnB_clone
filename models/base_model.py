@@ -16,7 +16,7 @@ class BaseModel:
         change your object.
     '''
     def __init__(self, *args, **kwargs):
-        if len(kwargs) != 0:
+        if lenkwargs:
             for key, value in kwargs.items():
                 if key == 'created_at' or key == 'updated_at':
                     value = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
