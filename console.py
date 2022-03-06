@@ -27,11 +27,13 @@ class HBNBCommand(cmd.Cmd):
         pass
 
     def do_create(self, line):
+        lists = (
+            "BaseModel", "User", "State", "Review", "Place", "City", "Amenity"
+            )
         line_args = line.split()
         if len(line) == 0:
             print("** class name missing **")
-        elif line_args[0] not in (
-                "BaseModel", "User", "State", "Review", "Place", "City", "Amenity"):
+        elif line_args[0] not in lists:
             print("** class doesn't exist **")
         else:
             if line_args[0] == "BaseModel":
@@ -64,10 +66,13 @@ class HBNBCommand(cmd.Cmd):
                 print(instance.id)
 
     def do_show(self, line):
+        lists = (
+            "BaseModel", "User", "State", "Review", "Place", "City", "Amenity"
+        )
         line_args = line.split()
         if len(line) == 0:
             print("** class name missing **")
-        elif line_args[0] not in ("BaseModel", "User", "State", "Review", "Place", "City", "Amenity"):
+        elif line_args[0] not in lists:
             print("** class doesn't exist **")
         elif len(line_args) == 1:
             print("** instance id missing **")
@@ -79,10 +84,13 @@ class HBNBCommand(cmd.Cmd):
                 print(id[line_args[0] + '.' + line_args[1]])
 
     def do_destroy(self, line):
+        lists = (
+            "BaseModel", "User", "State", "Review", "Place", "City", "Amenity"
+            )
         line_args = line.split()
         if len(line) == 0:
             print("** class name missing **")
-        elif line_args[0] not in ("BaseModel", "User", "State", "Review", "Place", "City", "Amenity"):
+        elif line_args[0] not in lists:
             print("** class doesn't exist **")
         elif len(line_args) == 1:
             print("** instance id missing **")
