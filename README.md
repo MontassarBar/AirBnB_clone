@@ -8,7 +8,7 @@
  - **Execute**
  - **Examples**
  - **List of console commands**
- - **Authors**
+ - **Author**
 
 
 ## About this project:
