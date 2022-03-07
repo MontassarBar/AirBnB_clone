@@ -30,7 +30,7 @@ A command interpreter is the part of a computer operating system that understand
 **./console.py**
 
 ## Examples:
-https://imgur.com/BQW5tQx
+<img src="https://imgur.com/BQW5tQx">
 
 
 ## List of console commands:
