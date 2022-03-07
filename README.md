@@ -5,7 +5,8 @@
  - **About this project**
  - **Usage**
  - **Console**
- - **execute**
+ - **Execute**
+ - **Examples**
  - **List of console commands**
  - **Authors**
 
