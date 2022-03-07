@@ -27,6 +27,7 @@ class HBNBCommand(cmd.Cmd):
         pass
 
     def do_create(self, line):
+        '''Creates a new instance of BaseModel, saves it and prints the id'''
         lists = (
             "BaseModel", "User", "State", "Review", "Place", "City", "Amenity"
             )
@@ -66,6 +67,8 @@ class HBNBCommand(cmd.Cmd):
                 print(instance.id)
 
     def do_show(self, line):
+        '''Prints the string representation of an instance based on
+         the class name and id'''
         lists = (
             "BaseModel", "User", "State", "Review", "Place", "City", "Amenity"
         )
@@ -84,6 +87,7 @@ class HBNBCommand(cmd.Cmd):
                 print(id[line_args[0] + '.' + line_args[1]])
 
     def do_destroy(self, line):
+        '''Deletes an instance based on the class name and id'''
         lists = (
             "BaseModel", "User", "State", "Review", "Place", "City", "Amenity"
             )
